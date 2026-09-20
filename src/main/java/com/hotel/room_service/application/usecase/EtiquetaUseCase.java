@@ -24,4 +24,46 @@ public class EtiquetaUseCase {
 
         return etiquetaRepository.consultaEtiqueta(request);
     }
+
+    public Mono<List<Etiqueta>> consultarEtiquetas() {
+        return etiquetaRepository.consultarEtiquetas();
+    }
+
+    public Mono<Short> insertarEtiqueta(Etiqueta etiqueta) {
+        if (etiqueta.getEtiqLlaveMst() == null || etiqueta.getEtiqLlaveMst().isBlank()) {
+            return Mono.error(new BusinessException("La llave de la etiqueta es obligatoria"));
+        }
+        if (etiqueta.getEtiqNombre() == null || etiqueta.getEtiqNombre().isBlank()) {
+            return Mono.error(new BusinessException("El nombre de la etiqueta es obligatorio"));
+        }
+        return etiquetaRepository.insertarEtiqueta(etiqueta);
+    }
+
+    public Mono<Long> actualizarEtiqueta(Etiqueta etiqueta) {
+        if (etiqueta.getEtiqId() == null) {
+            return Mono.error(new BusinessException("El id de la etiqueta es obligatorio"));
+        }
+        if (etiqueta.getEtiqLlaveMst() == null || etiqueta.getEtiqLlaveMst().isBlank()) {
+            return Mono.error(new BusinessException("La llave de la etiqueta es obligatoria"));
+        }
+        if (etiqueta.getEtiqNombre() == null || etiqueta.getEtiqNombre().isBlank()) {
+            return Mono.error(new BusinessException("El nombre de la etiqueta es obligatorio"));
+        }
+        return etiquetaRepository.actualizarEtiqueta(etiqueta)
+                .flatMap(rows -> {
+                    if (rows == 0) return Mono.error(new BusinessException("Etiqueta no encontrada"));
+                    return Mono.just(rows);
+                });
+    }
+
+    public Mono<Long> eliminarEtiqueta(Short etiqId) {
+        if (etiqId == null) {
+            return Mono.error(new BusinessException("El id de la etiqueta es obligatorio"));
+        }
+        return etiquetaRepository.eliminarEtiqueta(etiqId)
+                .flatMap(rows -> {
+                    if (rows == 0) return Mono.error(new BusinessException("Etiqueta no encontrada"));
+                    return Mono.just(rows);
+                });
+    }
 }

@@ -13,8 +13,12 @@ import lombok.NoArgsConstructor;
 public class Etiqueta {
     @JsonProperty("etiqId")
     private Short etiqId;
+    @JsonProperty("etiqLlaveMst")
+    private String etiqLlaveMst;
     @JsonProperty("etiqNombre")
     private String etiqNombre;
     @JsonProperty("etiqDescripcion")
     private String etiqDescripcion;
+    @JsonProperty("etiqEstado")
+    private String etiqEstado;
 }

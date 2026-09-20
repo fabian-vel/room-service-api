@@ -20,8 +20,10 @@ public class MenuItemTransformer {
                         ? domain.getEtiquetas().stream()
                         .map(e -> new EtiquetaResponse(
                                 e.getEtiqId(),
+                                e.getEtiqLlaveMst(),
                                 e.getEtiqNombre(),
-                                e.getEtiqDescripcion()))
+                                e.getEtiqDescripcion(),
+                                null))
                         .toList()
                         : List.of()
         );

@@ -14,10 +14,12 @@ import java.util.List;
 public class MenuCategoria {
 
     private Short  mecaId;
+    private String mecaLlaveMst;
     private String mecaNombre;
     private String mecaDescripcion;
     private String mecaImagenUrl;
     private Short  mecaParentId;
+    private String mecaEstado;
     private List<MenuCategoria> subCategorias;
 }
 

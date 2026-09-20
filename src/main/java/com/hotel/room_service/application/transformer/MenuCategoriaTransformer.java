@@ -11,6 +11,7 @@ public class MenuCategoriaTransformer {
                 domain.getMecaDescripcion(),
                 domain.getMecaImagenUrl(),
                 domain.getMecaParentId(),
+                domain.getMecaEstado(),
                 domain.getSubCategorias().stream()
                         .map(MenuCategoriaTransformer::toResponse)
                         .toList()

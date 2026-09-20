@@ -8,6 +8,7 @@ public record MenuCategoriaResponse(
         String mecaDescripcion,
         String mecaImagenUrl,
         Short mecaParentId,
+        String mecaEstado,
         List<MenuCategoriaResponse> subCategorias
 ) {
 }

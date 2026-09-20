@@ -4,9 +4,11 @@ spring:
 
   # ── Base de datos R2DBC (reactivo) ──────────────────────────────────────────
   r2dbc:
-    url: r2dbc:postgresql://localhost:5432/hotelguestdb?sslMode=DISABLE&schema=public
+    url: r2dbc:postgresql://localhost:5432/hotelguestdb
     username: postgres
     password: BD1234+pg*
+    properties:
+      schema: public
     pool:
       initial-size: 5
       max-size: 20

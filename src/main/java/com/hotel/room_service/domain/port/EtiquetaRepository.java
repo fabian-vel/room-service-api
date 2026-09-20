@@ -8,4 +8,8 @@ import java.util.List;
 
 public interface EtiquetaRepository {
     Mono<List<Etiqueta>> consultaEtiqueta(EtiquetaRequest request);
+    Mono<List<Etiqueta>> consultarEtiquetas();
+    Mono<Short> insertarEtiqueta(Etiqueta etiqueta);
+    Mono<Long> actualizarEtiqueta(Etiqueta etiqueta);
+    Mono<Long> eliminarEtiqueta(Short etiqId);
 }
