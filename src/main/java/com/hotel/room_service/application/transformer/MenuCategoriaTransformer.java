@@ -7,6 +7,7 @@ public class MenuCategoriaTransformer {
     public static MenuCategoriaResponse toResponse(MenuCategoria domain) {
         return new MenuCategoriaResponse(
                 domain.getMecaId(),
+                domain.getMecaLlaveMst(),
                 domain.getMecaNombre(),
                 domain.getMecaDescripcion(),
                 domain.getMecaImagenUrl(),

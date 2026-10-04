@@ -4,6 +4,7 @@ import java.util.List;
 
 public record MenuCategoriaResponse(
         Short mecaId,
+        String mecaLlaveMst,
         String mecaNombre,
         String mecaDescripcion,
         String mecaImagenUrl,
