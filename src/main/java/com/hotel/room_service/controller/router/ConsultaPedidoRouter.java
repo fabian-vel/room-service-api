@@ -23,4 +23,10 @@ public class ConsultaPedidoRouter {
         return RouterFunctions
                 .route(GET("/api/v1/consulta-pedidos-fecha-actual"), request -> handler.consultarPedidoFechaActual());
     }
+
+    @Bean
+    public RouterFunction<ServerResponse> consultarPedidoFiltroRoutes(ConsultaPedidoHandler handler) {
+        return RouterFunctions
+                .route(GET("/api/v1/pedidos"), handler::consultarPedidoFiltro);
+    }
 }
